@@ -1,5 +1,7 @@
 package com.example.androidanimations
 
+import android.animation.AnimatorInflater
+import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -20,12 +22,24 @@ class MainActivity : AppCompatActivity() {
             interpolator = AccelerateDecelerateInterpolator()
             duration = 1000
             addUpdateListener {
-                var progress = it.animatedValue as Float
+                val progress = it.animatedValue as Float
                 textViewCode.translationY = progress
                 textViewCode.translationX = progress/2
             }
             repeatMode = ValueAnimator.REVERSE
             repeatCount = ValueAnimator.INFINITE
+            start()
+        }
+
+        //using xml
+        val valueAnimatorXml = AnimatorInflater.loadAnimator(this, R.animator.value_animator) as ValueAnimator
+
+        with(valueAnimatorXml) {
+            addUpdateListener {
+                val progress = it.animatedValue as Float
+                textViewXml.translationY = progress
+                textViewXml.translationX = (progress/2) * -1
+            }
             start()
         }
     }
