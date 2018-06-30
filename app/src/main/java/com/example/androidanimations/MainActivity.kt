@@ -1,10 +1,10 @@
 package com.example.androidanimations
 
 import android.animation.AnimatorInflater
-import android.animation.TimeInterpolator
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.animation.AccelerateDecelerateInterpolator
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -42,5 +42,19 @@ class MainActivity : AppCompatActivity() {
             }
             start()
         }
+
+        //using object animator
+        val objectAnimator = ObjectAnimator.ofFloat(textViewObject, "translationY", 0f, -500f)
+        with(objectAnimator) {
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+            duration = 2000
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+
+        // NOTE:
+        // as shown above, this can also be done using xml.
+        // Instead of animator, we need to use objectAnimator inside xml
     }
 }
