@@ -6,13 +6,13 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.animation.AccelerateDecelerateInterpolator
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_value_animator.*
 
-class MainActivity : AppCompatActivity() {
+class ValueAnimatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_value_animator)
 
 
         //using value animator
